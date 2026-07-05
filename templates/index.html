@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VisionCaption AI | Image Captioning</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<!-- Background -->
+
+<div class="bg-circle one"></div>
+<div class="bg-circle two"></div>
+<div class="bg-circle three"></div>
+
+<!-- Main Container -->
+
+<div class="container">
+
+<!-- Header -->
+
+<header>
+
+<div class="logo">
+
+🤖
+
+</div>
+
+<h1>
+
+VisionCaption <span>AI</span>
+
+</h1>
+
+<p>
+
+Upload an image and let Artificial Intelligence generate an accurate caption instantly.
+
+</p>
+
+</header>
+
+<!-- Upload Card -->
+
+<section class="upload-card">
+
+<h2>
+
+Image Caption Generator
+
+</h2>
+
+<form action="/predict"
+
+method="POST"
+
+enctype="multipart/form-data">
+
+<div class="upload-box">
+
+<input
+
+type="file"
+
+name="image"
+
+accept="image/*"
+
+required
+
+id="imageInput">
+
+</div>
+
+<button
+
+type="submit"
+
+class="upload-btn">
+
+Generate Caption
+
+</button>
+
+</form>
+
+</section>
+
+<!-- Preview -->
+
+{% if image %}
+
+<section class="preview">
+
+<h2>
+
+Uploaded Image
+
+</h2>
+
+<img
+
+src="{{ image }}"
+
+alt="Uploaded Image"
+
+class="preview-image">
+
+</section>
+
+{% endif %}
+
+<!-- Caption Result -->
+
+{% if caption %}
+
+<section class="caption-box">
+
+<h2>
+
+AI Generated Caption
+
+</h2>
+
+<p>
+
+{{ caption }}
+
+</p>
+
+</section>
+
+{% endif %}
+<!-- Features Section -->
+
+<section class="features">
+
+    <div class="feature-card">
+
+        <h3>🖼 Image Upload</h3>
+
+        <p>
+            Upload JPG, PNG, or JPEG images securely for AI caption generation.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <h3>🤖 AI Captioning</h3>
+
+        <p>
+            Generates descriptive captions using a pre-trained deep learning model.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <h3>⚡ Fast Processing</h3>
+
+        <p>
+            Quickly analyzes your image and returns an AI-generated caption.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="about">
+
+    <h2>About This Project</h2>
+
+    <p>
+
+        VisionCaption AI is an Image Captioning application developed using
+        <strong>Python, Flask, TensorFlow, HTML, CSS, and JavaScript.</strong>
+
+        It uses a pre-trained deep learning model to understand image content
+        and automatically generate meaningful captions.
+
+    </p>
+
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 VisionCaption AI | AI Internship Task 3
+
+    </p>
+
+</footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
